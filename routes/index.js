@@ -5,7 +5,10 @@ var ctrlSpaces = require('../controllers/spaces');
 
 //spaces
 router.get('/spaces', ctrlSpaces.getAllSpaces);
-router.get('/spaces/:spaceid', ctrlSpaces.getOneSpace);
-router.put('/spaces/:spaceid', ctrlSpaces.updateOneSpace);
+router.get('/spaces/:spacenumber', ctrlSpaces.getOneSpace);
+router.put('/spaces/:spacenumber', ctrlSpaces.updateOneSpace);
+router.put('/spaces/:spacenumber/makeAvailableOn/:date', ctrlSpaces.makeSpaceAvailable);
+
+router.put('/spaces/:spacenumber/makeunAvailableOn/:date', ctrlSpaces.makeSpaceUnavailable);
 
 module.exports = router;
