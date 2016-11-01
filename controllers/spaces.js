@@ -67,7 +67,7 @@ module.exports.updateOneSpace = function(req, res) {};
 module.exports.createSpace = function(req, res){
 spaces.create({number: 1}, function(err, card){
 sendJsonResponse(res, 200, card);
-}
+});
 
 };
 
