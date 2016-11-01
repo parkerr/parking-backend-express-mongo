@@ -63,7 +63,17 @@ spaces.findOneAndUpdate({number: req.params.spacenumber}, {$push: {availableOn: 
 module.exports.updateOneSpace = function(req, res) {};
 
 
+
 module.exports.createSpace = function(req, res){
+spaces.create({number: 1}, function(err, card){
+sendJsonResponse(res, 200, card);
+}
+
+};
+
+
+
+module.exports.acreateSpace = function(req, res){
  spaces.findOne().sort('-number').exec(function(err, item){
    var maxnumber = item.number + 1;
   spaces.create({
