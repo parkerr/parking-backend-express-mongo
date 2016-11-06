@@ -73,7 +73,7 @@ sendJsonResponse(res, 200, card);
 
 
 
-module.exports.acreateSpace = function(req, res){
+module.exports.createNextSpace = function(req, res){
  spaces.findOne().sort('-number').exec(function(err, item){
    var maxnumber = item.number + 1;
   spaces.create({
