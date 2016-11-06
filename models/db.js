@@ -1,10 +1,9 @@
 var mongoose = require('mongoose');
 var gracefulShutdown;
-
-//var dbURI = 'mongodb://localhost/parking';
-//if(process.env.NODE_ENV == 'production'){
+var dbURI = 'mongodb://localhost/parking';
+if(process.env.NODE_ENV == 'production'){
   dbURI = process.env.MONGODB_URI;
-//}
+}
 mongoose.connect(dbURI);
 
 //Send messages to console so we know we have connected ok
