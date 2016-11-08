@@ -1,12 +1,11 @@
 var mongoose = require('mongoose');
 var spaces = mongoose.model('Space');
 
-module.exports.getAllSpaces = function (req, res) {
-  sendJsonResponse(res, 200, {"status" : "success"});
-};
 
 
-module.exports.getAllSpaces = function(req, res){
+
+var getAll = function(req, res){
+
   spaces.find().exec(function(err, space){
     
     if(!space.length){
@@ -22,6 +21,12 @@ module.exports.getAllSpaces = function(req, res){
     sendJsonResponse(res, 200, space);
   });
   
+};
+
+
+
+module.exports.getAllSpaces = function(req, res){
+  getAll(req, res);
 };
 
 
@@ -50,13 +55,15 @@ module.exports.getOneSpace = function(req, res) {
 
 module.exports.makeSpaceUnavailable = function(req, res){
 spaces.findOneAndUpdate({number: req.params.spacenumber}, {$pull: {availableOn: req.params.date}}, {new: true}, function(err, space){
-          sendJsonResponse(res, 200, space);
+          //sendJsonResponse(res, 200, space);
+	  getAll(req, res);
 });
 };
 
 module.exports.makeSpaceAvailable = function(req, res){
 spaces.findOneAndUpdate({number: req.params.spacenumber}, {$push: {availableOn: req.params.date}}, {new: true}, function(err, space){
-          sendJsonResponse(res, 200, space);
+          //sendJsonResponse(res, 200, space);
+	  getAll(req, res);
 });
 };
 
