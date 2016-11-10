@@ -6,7 +6,7 @@ var spaces = mongoose.model('Space');
 
 var getAll = function(req, res){
 
-  spaces.find().exec(function(err, space){
+  spaces.find().sort({number: 1}).exec(function(err, space){
     
     if(!space.length){
       
