@@ -10,6 +10,6 @@ router.put('/spaces/:spacenumber', ctrlSpaces.updateOneSpace);
 router.put('/spaces/:spacenumber/makeAvailableOn/:date', ctrlSpaces.makeSpaceAvailable);
 
 router.put('/spaces/:spacenumber/makeunAvailableOn/:date', ctrlSpaces.makeSpaceUnavailable);
-router.post('/spaces', ctrlSpaces.createNextSpace);
+//router.post('/spaces', ctrlSpaces.createNextSpace);
 
 module.exports = router;

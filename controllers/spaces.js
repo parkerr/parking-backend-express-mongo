@@ -51,7 +51,6 @@ module.exports.makeSpaceAvailable = function(req, res){
 
 
 module.exports.updateOneSpace = function(req, res) {
-	//TODO
 };
 
 
